@@ -20,7 +20,7 @@ def testando_palindrome():
 
 ## Expressao escolhida: ## "Socorram-me, subi no ônibus em Marrocos."
 
-    expressao_teste = "SOCORRAM ME SUBI NO ONIBUS EM GUATEMALA" 
+    expressao_teste = "SOCORRAM ME SUBI NO ONIBUS EM MARROCOS" 
     print('2. Testando: a expressao e a condicao do bloco (logica) -> ', expressao_teste)
     
     testando_fatiamento = expressao_teste
@@ -79,12 +79,12 @@ print(palin2)
 
 ## import re
 ## def lendo_palindrome(str):
-    ## 2) A função comeca verificando se a ENTRADA é de fato uma STRING e, caso contrário, levanta um ERRO..
-    ## NAO SEI COMO FAZER 
+    ## Função comeca verificando se a ENTRADA é de fato uma STRING e, caso contrário, levanta um ERRO..
+    ## NAO SEI COMO FAZER analise de ERRO 
     # if not str (expressao_usuario):
     # print(ERRO)
 
-    ## 3) BLOCO DE CONDICAO para verificar as condicoes MINIMAS da expressao, possibilita ser um PALINDROME 
+    ## BLOCO DE CONDICAO para verificar as condicoes MINIMAS da expressao, possibilita ser um PALINDROME 
     size = len(str)
     if (size == 0) or (size < 2) or (len(expressao_teste) < 3):
         return False
@@ -92,6 +92,16 @@ print(palin2)
     ## Expressao Regular | Sanitizar - ESTA LINHA DE CODIGO EU (ainda) NAO ENTENDI, fonte livro
     ##str = re.sub('[^a-za-Z0-9]+','', (normalize('NFKD', str)).encode('ASCII','ignoner').decode('ASCII').lower)
     new_size = len(str)
+    
+    ## RODRIGO ENSINOU -> Como resolver o ponto de "sanitizacao" !!!
+    ## import string
+    ## from unidecode import unidecode
+
+    ## text = "Socorram-me, subi no ônibus em Marrocos"
+    ## text_lower = text.lower()
+    ## text_with_no_ponctuations = text_lower.translate(str.maketrans('', '', string.punctuation))
+    ## text_with_no_accents = unidecode(text_with_no_ponctuations)
+    ## clean_text = text_with_no_accents.replace(' ', '')
 
     ## Usar BLOCO DE CONDICAO -> FOR auxiliar IN dentro RANGE da variavel MODULO_ANALISE que recebeu o parametro
     for i in range(0, new_size // 2):
