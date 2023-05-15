@@ -62,36 +62,35 @@ def num_por_extenso(num):
 
 ## 1) Se NUM for menor que 10, a função retorna o nome correspondente (index) da lista de UNIDADES.
     if num < 10: 
-        return unidades[num] ## num esta na posicao número do indice de UNIDADES.
+        return unidades[num] ## NUM esta na posicao número do indice de UNIDADES.
 ## 2) Se NUM estiver entre 10 e 19 (INCLUSIVE), a função retorna o nome correspondente da lista DEZENAS1.
     elif num < 20:
-        return dezenas1[num - 10] ## num - 10 resulta no local do INDICE na lista DEZENAS1.
+        return dezenas1[num - 10] ## [NUM - 10] resulta no local do INDICE na lista DEZENAS1.
 ## 3) Se NUM estiver entre 20 e 99 (INCLUSIVE), a função determina a casa das DEZENAS e UNIDADES do número.
 ## Por exemplo, SE ENTAO a variavel NUM receber 56, entao a lista: DEZENA seria 5 .and. a UNIDADE seria 6.
     elif num < 100:
-        dezena, unidade = divmod(num, 10) ## divmod(87, 10) return: num 87 // div 10 = 8,7 (8 dezena, 7 unidade). 
-        ## A função DIVMOD() recebe dois ARGUMENTOS, NUM (dividendo) e 10 (divisor),
+        dezena, unidade = divmod(num, 10) ## DIVMOD(87, 10) return: NUM 87 // DIV 10 = 8,7 (8 dezena, 7 unidade). 
+        ## A função DIVMOD() recebe dois ARGUMENTOS, NUM (dividendo) e o numero 10 (divisor),
         ## e retorna uma LISTA contendo dois valores:
-        ## o QUOCIENTE (o resultado da divisão inteira entre NUM e 10)
-        ## o RESTO (o resultado de a operação do módulo entre NUM e 10).
-## Nesse caso, divmod(num, 10) é chamado com NUM como dividendo e 10 como divisor. 
-## A função DIVMOD() realiza a divisão inteira de NUM por 10 e retorna
-## uma TUPLA contendo o QUOCIENTE e o RESTO.
-## EXEMPLO: Suponha que tenhamos NUM recebendo 87. 
-# Entramos no bloco elif porque 87 é menor que 100.
-## elif num < 100:
-## dezena, unidade = divmod(num, 10)
-    # Aqui, num = 87
-    # divmod(87, 10) return (8, 7)
-    # 8 é o quociente (DEZENA) e 7 é o resto (UNIDADE)
-    # Então, dezena = 8 e unidade = 7
+            ## o QUOCIENTE (o resultado da divisão inteira entre NUM e 10)
+            ## o RESTO (o resultado de a operação do módulo % entre NUM e 10).
+## Nesse caso, DIVMOD(NUM, 10) é chamado com NUM como dividendo e 10 como divisor. 
+## A função DIVMOD() realiza a divisão inteira de NUM por 10 e retorna uma TUPLA contendo o QUOCIENTE e o RESTO.
+    ## EXEMPLO: Suponha que tenhamos NUM recebendo 87. 
+    # Entramos no bloco elif porque 87 é menor que 100.
+    ## elif num < 100:
+        ## dezena, unidade = divmod(num, 10)
+        # Aqui, num = 87
+        # divmod(87, 10) return (8, 7) -> onde 8 é o quociente (DEZENA) e 7 é o resto (UNIDADE)
+        # Então, dezena = 8 e unidade = 7
 ## A TUPLA resultado (8, 7) significa que o quociente DEZENA é 8 (que representa a casa das dezenas de 87)
 ## e o resto UNIDADE é 7 (que representa a casa das unidades de 87).
 ## Após a chamada da função DIVMOD(), o código pode utilizar as variáveis da lista DEZENA e UNIDADE 
 ## para continuar processando o número de acordo com a lógica desejada, no laco de repeticao IF ELSE, abaixo:
+        
+# Se a posição das unidades for 0, podemos acessar diretamente o nome da dezena correspondente
         if unidade == 0: ## se a dezena é 3 (indice de 40), [dezena - 2] == [1] -> indice de 30 (trinta) lista DEZENA2.
             return dezenas2[dezena - 2]
-        # Se a posição das unidades for 0, podemos acessar diretamente o nome da dezena correspondente
         ## EXPLICACAO:
         # SE a posição das UNIDADE for ZERO, retorna o nome correspondente da lista dezenas2.
         ## Como: subtraindo 2 de dezena, assim, o código alinha o índice corretamente para acessar o nome
@@ -104,15 +103,14 @@ def num_por_extenso(num):
         ## No entanto, os valores na lista dezenas2 começam em 20, ao subtrair 2 de dezena, ajustamos o índice
         ## para corresponder à posição correta na lista de dezenas2.
         
-        ## Senao, se a posição das unidades não for 0, concatenamos o nome das dezenas + e o nome das unidades.
+## Senao, se a posição das unidades não for 0, concatenamos o nome das dezenas + e o nome das unidades.
         else:
         # SENAO, caso contrário, combina os nomes das DEZENAS e UNIDADES com a conjunção 'E' (+ concatenação).
             return dezenas2[dezena - 2] + ' e ' + unidades[unidade]
         
 ## 4) Se NUM for exatamente 100, a função retorna o nome 'cem', no indice 0, da lista de CENTENAS.
- ## Essa lógica garante que a função manipule corretamente os números:
- ##  no intervalo de 100 a 999, dividindo o número restante em dezenas e unidades e combinando-os
- ## com o nome de centena apropriado.
+## Essa lógica garante que a função manipule corretamente os números:
+## no intervalo de 100 a 999, dividindo o número restante em dezenas e unidades e combinando-os com o nome de CENTENA apropriado.
 
 ## Este bloco de código é executado quando o número de entrada (NUM) é maior ou igual a 100.
 ## Trata o caso em que o número está no intervalo de 100 a 200 (inclusive podemos ir ate 999).
@@ -166,8 +164,8 @@ num = int(input('Digite novamente um número, entre 0 e 200: '))
 # se a entrada não for um número inteiro válido, uma mensagem de ERRO será impressa na tela.
 if num >= 0 and num <= 200:
     print('Voce digitou: ', num_por_extenso(num))
-    ##  Se o usuário informar um número inteiro válido de 0 a 200 (INCLUSIVE),
-    ## o código chama a função num_por_extenso para converter o número em sua representação textual.
+    ## SE o usuário informar um número inteiro válido de 0 a 200 (INCLUSIVE), o código chama
+    ## a função num_por_extenso para converter o número em sua representação textual.
     ## A string retornada é então impressa no console.
     print('etapa1, antes do LOOP, bloco principal')
     print()
