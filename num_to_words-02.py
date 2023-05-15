@@ -54,6 +54,13 @@ def num_por_extenso(num):
 ## de extrair as DEZENAS (simples e composta) e as UNIDADES para o argumento NUM.
 ## Depois, pode usá-los nas declarações ESTRUTURAS DE REPETICAO (condicional) subsequentes para 
 ## determinar a representação textual correspondente do número digitado pelo usuario.
+## ESTUDANDO PYTHON:
+## Extraindo a unidade: ## unidade = numero % 10
+## Eliminando a unidade de nosso número: ## numero = (numero - unidade)/10
+## Extraindo a dezena: ## dezena = numero % 10
+## Resumindo, em Python, fica assim:
+## numero = (numero - unidade) / 10 ## Passa de 123 pra 123-3 = 120 / 10 = 12
+## dezena = numero % 10  ## dezena = 12 % 10 = 2
 
 ## IMPORTANTE (REVISAO aulas 2.grau): 
 ## O programa precisa saber que: 
@@ -121,6 +128,9 @@ def num_por_extenso(num):
     else:
         centena, resto = divmod(num, 100) ## divmod(180, 10) return: num 180 // div 10 = 18,0 (18 dezena, 0 unidade).
         ## Para (18 dezena -> novamente: num - 10 resulta no local do INDICE em dezenas e unidades.) 
+        ## Em programação Python, eliminando a dezena do número original, fica a centena:
+        ## numero = (numero - dezena)/10
+        ## centena = numero
         
         if resto == 0: ## Se o RESTO for ZERO, retorna o nome correspondente da lista de CENTENAS.
             return centenas[centena]
