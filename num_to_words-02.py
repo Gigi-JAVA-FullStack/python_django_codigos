@@ -185,6 +185,7 @@ while True:
     # Dentro do loop, pedimos ao usuário para inserir um número usando a função INPUT().
     num_input = input('Digite um número inteiro entre 0 e 200 (ou "fim"): ')
     if num_input.lower() == 'fim':
+        print('Encerrando o programa, ate a próxima!')
     ## Se o usuário inserir a string "fim", o loop será encerrado usando a instrução break.
         break
 ## O método STR.ISDIGIT() é usado para verificar se a string de entrada consiste apenas em dígitos,
