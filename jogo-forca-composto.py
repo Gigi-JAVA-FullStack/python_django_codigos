@@ -1,12 +1,12 @@
 ## DESAFIO 03 ## 
-## 1) O programa usa uma lista de palavras e de forma aleatoria (RANDOM) escolhe uma
+## (1) O programa usa uma lista de palavras e de forma aleatoria (RANDOM) escolhe uma
 ## das palavra dentro da lista para comecar a brincadeira. Ou o jogo pergunta se o jogador 
-## deseja escolher sua propria palavra (Menu com um looping IF ELIF ELSE
-## 2) O jogador (usuario) tem cinco tentativas para adivinhar a palavra corretamente. 
-## 3) O programa acompanhará se as letras foram adivinhadas, atraves de um LACO DE REPETICA.
+## deseja escolher sua propria palavra. Menu com um looping IF ELIF ELSE.
+## (2) O jogador (usuario) tem cinco tentativas para adivinhar a palavra corretamente. 
+## (3) O programa acompanhará se as letras foram adivinhadas, usando um LACO DE REPETICA.
 ## Exibirá na tela o estado atual das adivinhacoes mostrando espaços vazios _ _ _ _ para as
-## letras que ainda não foram adivinhadas pelo usuario. Na rodada do LOOPING acrescenta (ou nao).
-## 4) O jogador tem 5 oportunidades para inserir uma letra e o programa ira respondendo,
+## letras que ainda não foram adivinhadas pelo usuario. Na rodada do LOOPING acrescenta letras (ou nao).
+## (4) O jogador tem 5 oportunidades para inserir uma letra e o programa ira respondendo,
 ## atraves de uma ESTRUTURA CONDICIONAL, IF ELIF ELSE, com a logica dentro do LOOPING.
 
 import random
@@ -17,8 +17,8 @@ def enforcado():
     lista = ["banana", "laranja", "morango", "maracuja", "caju", "abacaxi", "jaca", "manga",
                       "abacate", "goiaba", "carambola", "kiwi", "coco"]
 ## A escolha_randomica conterá uma única palavra que foi escolhida aleatoriamente na lista,
-## mas a própria lista deve permanecer com todas as palavras guardadas,
-## para referência futura ou para recomecar o jogo, se for o desejo do jogador (usuario).
+## mas a própria lista deve permanecer com todas as palavras guardadas,  para referência 
+## futura ou para recomecar o jogo, se for o desejo do jogador (usuario).
 
     print('\n+++++++++++++++++++++++++++++++++++++')
     print("  Bem-vindo ao 'Jogo do Enforcado'!")
