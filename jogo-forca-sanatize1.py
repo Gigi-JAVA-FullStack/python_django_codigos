@@ -1,26 +1,3 @@
-## Biblioteca UNICODEDATA: quando se deseja comparar palavras sem levar em consideração a presença de acentos.
-##'NFD' é passado para a função, indicando que a normalização será feita utilizando a forma de decomposição canônica (ou seja, forma mais basica). 
-## Significa que os caracteres acentuados serão decompostos em uma combinação de caracteres base e caracteres de acentuação.
-# facilitando a remoção dos acentos ao utilizar a codificação ASCII.
-## A funcao encode().decode() a STRING adivinha é convertida para bytes utilizando a codificação ASCII. 
-## Os caracteres que não são representáveis na codificação ASCII são ignorados.
-## Em seguida, a STRING é decodificada novamente para UTF-8, voltando a ser uma string. Isso tem o efeito de remover os caracteres acentuados da string, pois eles não são representáveis na codificação ASCII. 
-## Quando a funcao for CHAMADA retorna o parametro (adivinha): STRING sem acentos.
-## Função re.sub do módulo re para substituir (sub) padrões em uma string. O padrão especificado é r'[^A-Za-z]', que corresponde a qualquer caractere que não seja uma letra maiúscula (A-Z) ou minúscula (a-z). Esses caracteres não são letras do alfabeto e são removidos da string. Portanto, a variável adivinha agora conterá apenas letras.
-## NOTACAO a r'' é usada para criar uma string bruta em Python, caracteres especiais são tratados como caracteres literais, sem a interpretação usual de sequências de escape.
-##  how to master regular expressions but first, let’s clarify the terminology used in this guide:
-# pattern: regular expression pattern
-# string: test string used to match the pattern
-# digit: 0-9
-# letter: a-z, A-Z
-# symbol: !$%^&*()_+|~-=`{}[]:”;'<>?,./
-# space: single white space, tab
-# character: refers to a letter, digit or symbol
-
-# exemplo palavras: Parque de diversões,
-# (testar acentos)  crianças encontram: brinquedos; balões; e pipoca.
-#                   Não executar iterações é errado.
-
 import random 
 import re # module re (suport for regular expression)
 import unicodedata # biblioteca para comparar palavras sem acentos
@@ -35,7 +12,7 @@ def remover_acento(adivinha): ## Funcao sera CHAMADA retorna o parametro linha 2
 ## função útil para normalizar e limpar palavra antes de comparar ou processar.
 def limpa_palavra(adivinha): ## Funcao sera CHAMADA retorna o parametro linha 55 e 89
     adivinha = remover_acento(adivinha) # chamada da funcao REMOVER_ACENTO(string advinha como parametro), retorna a mesma string, mas com os acentos removidos).
-    adivinha = re.sub(r'[^%*A-Za-z]', '', adivinha) ## Regex #Função re.sub do módulo re para substituir (sub) padrões em uma string. # notação r'(string bruta/raw string) Python
+    adivinha = re.sub(r'[^A-Za-z-%&*]', '_', adivinha) ## Regex #Função re.sub do módulo re para substituir (sub) padrões em uma string. # notação r'(string bruta/raw string) Python
     return adivinha.lower()
 
 def enforcado():
@@ -58,10 +35,13 @@ def enforcado():
         ## ESTRUTURA DE SELECAO ##
         if menu_escolhido == "1":
             opcao_usuario = random.choice(lista_programa)
+            copia_opcao_usuario = opcao_usuario[:]
+            opcao_usuario = limpa_palavra(opcao_usuario)
             print("O programa escolheu a palavra/frase para adivinhar, vamos jogar.")
             break ## LOOP sera interrompido, saira, não executa restante iteracoes.
         elif menu_escolhido == "2":
             opcao_usuario = input("Digite sua palavra/frase a ser adivinhada: ")
+            copia_opcao_usuario = opcao_usuario[:]
             opcao_usuario = limpa_palavra(opcao_usuario)
             print("Voce escolheu a sua palavra/frase para adivinhar, vamos jogar.")
             if opcao_usuario == "": ## se escolher 2, mas nao digitar nada...
@@ -73,7 +53,7 @@ def enforcado():
             return
         else: ## SE todas as opoes anteriores forem FALSE, entao...
             print("Escolha invalida! Por favor, digite a opcao do MENU: 1, 2 ou 3.")
-
+    
     letra_adivinhou = []
     tentativa_maximo = 5
 ## estrutura REPETICAO com VARIAVEL DE CONTROLE ##  
@@ -86,8 +66,8 @@ def enforcado():
                 palavra_escondida += " "
             else:
                 palavra_escondida += "_"
-                print(palavra_escondida)
-        print("A palavra/frase escondida: ", palavra_escondida)
+        print(palavra_escondida)
+        ## print("A palavra/frase escondida: ", copia_opcao_usuario)
         print(f'Restam {tentativa_maximo} tentativa(s).')
         print()
 
@@ -112,8 +92,8 @@ def enforcado():
             letra_adivinhou.append(adivinhando_letra)
     else: 
         print("Como dizem: \'GAME IS OVER!' Voce usou todas as tentativas.")
-        print("A palavra escolhida era:", opcao_usuario)
 
+    print("\nA palavra escolhida era:", copia_opcao_usuario)
     play_again = input("Deseja jogar novamente? (s/n): ")
     if play_again.lower() == 's':
         enforcado()
@@ -121,15 +101,3 @@ def enforcado():
         print("Voce encerrou o jogo do ENFORCADO! Ate a proxima!")
 
 enforcado()
-
-# CRIAR MAIS FUNCOES ## 
-# def looping_palavra_tela(opcao_usuario, letra_adivinhou):
-#     palavra_escondida = ""
-#     for letra in opcao_usuario:
-#         if letra in letra_adivinhou:
-#             palavra_escondida += letra
-#     else:
-#         palavra_escondida += "_"
-#         print("Palavra escondida:", palavra_escondida)
-#         print(f'Restam {tentativa_maximo} tentativa(s).')
-#         print()
