@@ -3,6 +3,7 @@ import random
 def resulta_quadrado_magico(matriz_quadrada_num):
 
     ## TODO Objetivo: checar se o quadrado em analise e (ou nao) magico.
+    ## O QUADRADO MAGICO EH SEMPRE O MESMO ???? ## DESCOBRIR O PORQUÊ ##
 
     soma_alvo = sum(matriz_quadrada_num[0])
     # Checar linhas
