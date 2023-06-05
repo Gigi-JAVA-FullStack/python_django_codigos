@@ -49,14 +49,16 @@ def main():
         if num_input.lower() == 'fim':
             print('Encerrando o programa, até a próxima!')
             break
-        if num_input.isdigit():
-            num = int(num_input)
-            if 0 <= num <= 200:
-                print('\nVOCE DIGITOU:', num_por_extenso(num))
-            else:
-                print('\nEntrada inválida!')
-        else:
-            print('\nEntrada inválida! Digite um número inteiro ou "fim".')
+        try:
+            if num_input.isdigit():
+                num = int(num_input)
+                if 0 <= num <= 200:
+                    print('\nVOCE DIGITOU:', num_por_extenso(num))
+                else:
+                    print('\nEntrada inválida!')
+        except ValueError:
+                print('\nEntrada inválida! Digite um número inteiro ou "fim".')
+
 
 if __name__ == '__main__':
     main()
