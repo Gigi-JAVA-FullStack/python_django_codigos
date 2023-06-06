@@ -1,3 +1,6 @@
+## FONTE: Professor Luiz Otavio Miranda (UDEMY). 
+## Curso completo de PYTHON (do basico ao avançado).
+
 import random
 
 def resulta_quadrado_magico(matriz_quadrada_num):
