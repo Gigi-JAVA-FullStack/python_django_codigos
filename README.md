@@ -12,3 +12,5 @@ COD3R - https://www.cod3r.com.br/users/sign_in
 LOIANE TRAINING - https://www.youtube.com/playlist?list=PLGxZ4Rq3BOBq0KXHsp5J3PxyFaBIXVs3r
 
 UDEMY - https://www.udemy.com/
+
+ESTUDONAUTA - https://www.estudonauta.com/
